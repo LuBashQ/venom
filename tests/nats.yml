@@ -1,0 +1,13 @@
+name: NATS testsuite
+vars:
+  addr: 'nats://localhost:4222'
+
+testcases:
+  - name: NATS publish message
+    steps:
+      - type: nats
+        addr: "{{.addr}}"
+        clientType: publisher
+        messages:
+          - subject: venom.nats_test.pub_subject
+            payload: '{"a": 1}'
